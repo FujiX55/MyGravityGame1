@@ -1,0 +1,20 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Doctor.cs">
+    <Files>
+      <File FileName="Assets\Scripts\FloorMove.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Player.cs" Line="61" Column="1" />
+      <File FileName="Assets\Scripts\Graviton.cs" Line="71" Column="32" />
+      <File FileName="Assets\Scripts\Pad.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Token.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Doctor.cs" Line="20" Column="1" />
+      <File FileName="Assets\Scripts\Goal.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GameMgr.cs" Line="18" Column="24" />
+      <File FileName="Assets\Scripts\MainCamera.cs" Line="10" Column="2" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

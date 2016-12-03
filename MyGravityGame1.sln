@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{799B2CC4-F178-F223-F995-CC066DCF283D}") = "MyGravityGame1", "Assembly-CSharp.csproj", "{2EEEC632-8135-2EA5-BBAB-BE0F97C4FF02}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2EEEC632-8135-2EA5-BBAB-BE0F97C4FF02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EEEC632-8135-2EA5-BBAB-BE0F97C4FF02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EEEC632-8135-2EA5-BBAB-BE0F97C4FF02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EEEC632-8135-2EA5-BBAB-BE0F97C4FF02}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
