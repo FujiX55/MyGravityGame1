@@ -51,7 +51,7 @@ public class Goal : Token
 
 			GameObject obj = GameObject.Find("GameMgr") as GameObject;
 
-			obj.GetComponent<GameMgr>()._state = GameMgr.eState.StageClear;
+			obj.GetComponent<GameMgr>().state = GameMgr.eState.StageClear;
 
 			// プレイヤ消滅
 			obj = GameObject.Find("Player") as GameObject;

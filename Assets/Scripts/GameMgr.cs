@@ -12,37 +12,32 @@ public class GameMgr : MonoBehaviour
 	}
 
 	// 状態
-	public eState _state = eState.Main;
+	public eState state = eState.Main;
 
 	// 現在のステージ番号
 	public int nStage = 1;
 
 	// プレイヤへの参照
-	Player player_ = null;
+	Player player = null;
 
 	// GamePad
-	public Pad pad;
-
+	public Pad      pad;
 	public FieldMgr field;
 
 	// 開始
 	void Start()
 	{
-		pad = new Pad();
-
+		pad   = new Pad();
 		field = new FieldMgr ();
 
 		// 壁オブジェクト管理生成
-		Wall.parent = new TokenMgr<Wall> ("Wall", 128);
-
 		// 移動床オブジェクト管理作成
-		FloorMove.parent = new TokenMgr<FloorMove> ("FloorMove", 32);
-
 		// パーティクル管理作成
-		Particle.parent = new TokenMgr<Particle> ("Particle", 32);
-
 		// トゲ監理生成
-		Spike.parent = new TokenMgr<Spike> ("Spike", 32);
+		Wall.parent      = new TokenMgr<Wall> ("Wall", 128);
+		FloorMove.parent = new TokenMgr<FloorMove> ("FloorMove", 32);
+		Particle.parent  = new TokenMgr<Particle> ("Particle", 32);
+		Spike.parent     = new TokenMgr<Spike> ("Spike", 32);
 
 		// マップデータの読み込み
 		Load (nStage);
@@ -51,30 +46,23 @@ public class GameMgr : MonoBehaviour
 	// プレイヤのゲーム状態をチェックする
 	void CheckPlayerGameState()
 	{
-		if (player_ == null) 
+		if (player == null) 
 		{
 			// プレイヤへの参照を取得する
 			GameObject obj = GameObject.Find("Player") as GameObject;
-			player_ = obj.GetComponent<Player>();
-
-			#if false
-			// カメラの座標をプレイヤに追従させる
-			Vector3 pos = Camera.main.transform.position;
-			pos.x = player_.X;
-			Camera.main.transform.position = pos;
-			#endif
+			player = obj.GetComponent<Player>();
 		}
 
-		switch ( player_.GetGameState() ) 
+		switch ( player.GetGameState() ) 
 		{
+		// ステージクリア
 		case Player.eGameState.StageClear:
-			// ステージクリア
-			_state = eState.StageClear;
+			state = eState.StageClear;
 			break;
 
+		// ゲームオーバー
 		case Player.eGameState.GameOver:
-			// ゲームオーバー
-			_state = eState.GameOver;
+			state = eState.GameOver;
 			break;
 		}
 	}
@@ -88,43 +76,17 @@ public class GameMgr : MonoBehaviour
 			return;
 		}
 
-		#if false
-		if (player_ != null)
-		{
-			Vector3 pos = Camera.main.transform.position;
-			Vector3 bak = pos;
-
-			pos.x = player_.X;
-
-			Camera.main.transform.position = pos;
-
-			Vector2 min = Camera.main.ViewportToWorldPoint(Vector2.zero);
-			Vector2 max = Camera.main.ViewportToWorldPoint(Vector2.one);
-
-			// カメラの座標をプレイヤに追従させる
-			if (( max.x < field.right )
-			&&  ( min.x > field.left ))
-			{
-				;
-			}
-			else
-			{
-				Camera.main.transform.position = bak;
-			}
-		}
-		#endif
-
 		pad.Update();
 
-		switch (_state) 
+		switch (state) 
 		{
 		case eState.Main:
 			// プレイヤのゲーム状態をチェックする
 			CheckPlayerGameState();
 			break;
 
+		// ステージクリア
 		case eState.StageClear:
-			// ステージクリア
 			if ( pad.IsPushed() )
 			{
 				// PUSH押下で次に進む
@@ -133,7 +95,7 @@ public class GameMgr : MonoBehaviour
 				// 次のステージに進む
 				nStage++;
 
-				if (nStage > 1)
+				if (nStage > 3)
 				{
 					// 全ステージクリア
 					// ステージ1に戻る
@@ -143,12 +105,12 @@ public class GameMgr : MonoBehaviour
 				// マップデータ読み込み
 				Load(nStage);
 
-				_state = eState.Main;
+				state = eState.Main;
 			}
 			break;
 
+		// ゲームオーバー
 		case eState.GameOver:
-			// ゲームオーバー
 			if ( pad.IsPushed() )
 			{
 				// Spaceキーを押したらやり直し
@@ -157,7 +119,7 @@ public class GameMgr : MonoBehaviour
 				// マップデータ読み込み
 				Load(nStage);
 
-				_state = eState.Main;
+				state = eState.Main;
 			}
 			break;
 		}
@@ -179,10 +141,10 @@ public class GameMgr : MonoBehaviour
 		Spike.parent.Vanish ();
 
 		// プレイヤを復活させる
-		player_.Revive ();
+		player.Revive ();
 
 		// 初期状態に戻す
-		player_.SetGameState (Player.eGameState.None);
+		player.SetGameState (Player.eGameState.None);
 	}
 
 	// ラベルを画面中央に表示
@@ -206,7 +168,7 @@ public class GameMgr : MonoBehaviour
 
 	void OnGUI()
 	{
-		switch (_state) 
+		switch (state) 
 		{
 		case eState.StageClear:
 			DrawLabelCenter("STAGE CLEAR!");

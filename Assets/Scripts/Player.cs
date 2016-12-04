@@ -6,7 +6,6 @@ using System.Collections;
 /// </summary>
 public class Player : Token
 {
-
 	// GamePad
 	public Pad pad;
 	
@@ -62,9 +61,7 @@ public class Player : Token
 	// 生成
 	void Start()
 	{
-		GameObject obj = GameObject.Find("GameMgr") as GameObject;
-
-		gameMgr_ = obj.GetComponent<GameMgr>();
+		gameMgr_ = GameObject.Find("GameMgr").GetComponent<GameMgr>();
 	}
 
 	/// <summary>
@@ -72,9 +69,6 @@ public class Player : Token
 	/// </summary>
 	void Update()
 	{
-		// 回転テスト
-//		transform.Rotate(0,0,1);
-
 		Vector2 v = gameMgr_.pad.GetVector ();
 
 		// 左右キーで移動する
@@ -84,12 +78,10 @@ public class Player : Token
 		if 		(VX <= -1.0f)
 		{	
 			_bFacingLeft = true;
-//			GravityScale = 0.1f;
 		}			// 左を向く
 		else if (VX >=  1.0f)	
 		{	
 			_bFacingLeft = false;
-//			GravityScale = 0.1f;
 		}			// 右を向く
 		else
 		{

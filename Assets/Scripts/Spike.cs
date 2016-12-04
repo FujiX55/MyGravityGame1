@@ -22,16 +22,27 @@ public class Spike : Token
 	{
 		string name = LayerMask.LayerToName (other.gameObject.layer);
 
-		if (name == "Player")
+		if (name == "Doctor")
 		{
 			// プレイヤが衝突
-			Player p = other.gameObject.GetComponent<Player>();
+//			Player p = other.gameObject.GetComponent<Player>();
 
 			// ゲームオーバー状態にする
-			p.SetGameState(Player.eGameState.GameOver);
+//			p.SetGameState(Player.eGameState.GameOver);
 
 			// プレイヤ消滅
-			p.Vanish();
+//			p.Vanish();
+
+			GameObject obj = GameObject.Find("GameMgr") as GameObject;
+
+			obj.GetComponent<GameMgr>().state = GameMgr.eState.GameOver;
+
+			// プレイヤ消滅
+			obj = GameObject.Find("Player") as GameObject;
+			if ( obj )
+			{
+				obj.GetComponent<Player>().Vanish();
+			}
 		}
 	}
 }

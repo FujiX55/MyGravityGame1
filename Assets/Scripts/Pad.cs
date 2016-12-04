@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Pad {
 
+	public Vector2 init_;
 	public Vector2 start_;
 	public Vector2 latest_;
 	bool	push_;
@@ -20,6 +21,8 @@ public class Pad {
 		pushStart_ = 0;
 		longStart_ = 0;
 		dblcStart_ = 0;
+
+		init_ = start_ = Vector2.zero;
 	}
 
 	/// 入力方向を取得する.
@@ -63,7 +66,9 @@ public class Pad {
 				if ( leverId_ == -1 )
 				{
 					leverId_ = touch.fingerId;
-					start_ = touch.position;
+					init_ = start_ = touch.position;
+					init_ = Camera.main.ScreenToWorldPoint(init_);
+
 					latest_ = start_;
 
 					if ( longStart_ > 0.0f )
@@ -115,7 +120,7 @@ public class Pad {
 			case TouchPhase.Ended:
 				if ( touch.fingerId == leverId_ )
 				{
-					start_ = new Vector2(0,0).normalized;
+					init_ = start_ = Vector2.zero;
 					latest_ = start_;
 					leverId_ = -1;
 
@@ -139,7 +144,8 @@ public class Pad {
 		// 左クリックを検出
 		if ( Input.GetMouseButtonDown(0) ) {
 			// マウスボタン押下
-			start_ = Input.mousePosition;
+			init_ = start_ = Input.mousePosition;
+			init_ = Camera.main.ScreenToWorldPoint(init_);
 
 			pushStart_ = Time.time;
 		}
@@ -148,7 +154,7 @@ public class Pad {
 			latest_ = Input.mousePosition;
 		}
 		else if ( Input.GetMouseButtonUp(0) ) {
-			start_ = new Vector2(0,0).normalized;
+			init_ = start_ = Vector2.zero;
 			latest_ = start_;
 
 			if ( elapsePush < 0.5f )

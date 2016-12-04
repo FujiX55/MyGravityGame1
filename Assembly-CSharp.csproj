@@ -65,9 +65,9 @@
      <Compile Include="Assets\Scripts\UnityAds.cs" />
      <Compile Include="Assets\Scripts\Util.cs" />
      <Compile Include="Assets\Scripts\Wall.cs" />
-     <None Include="Assets\Resources\Levels\001.xml" />
-     <None Include="Assets\Resources\Levels\003.xml" />
      <None Include="Assets\Resources\Levels\002.xml" />
+     <None Include="Assets\Resources\Levels\003.xml" />
+     <None Include="Assets\Resources\Levels\001.xml" />
  <Reference Include="UnityEngine.Advertisements">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
  </Reference>
