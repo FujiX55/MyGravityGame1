@@ -76,4 +76,33 @@ public class Graviton : Token {
 
 		Util.GUILabel(380, 200, 120, 30, text);
 	}
+
+	// 接触判定チェック
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		string name = LayerMask.LayerToName (other.gameObject.layer);
+
+		if (name == "Doctor")
+		{
+			// プレイヤが衝突
+			//			Player p = other.gameObject.GetComponent<Player>();
+
+			// ゲームオーバー状態にする
+			//			p.SetGameState(Player.eGameState.GameOver);
+
+			// プレイヤ消滅
+			//			p.Vanish();
+
+			GameObject obj = GameObject.Find("GameMgr") as GameObject;
+
+			obj.GetComponent<GameMgr>().state = GameMgr.eState.GameOver;
+
+			// プレイヤ消滅
+			obj = GameObject.Find("Player") as GameObject;
+			if ( obj )
+			{
+				obj.GetComponent<Player>().Vanish();
+			}
+		}
+	}
 }

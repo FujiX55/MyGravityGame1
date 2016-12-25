@@ -16,7 +16,7 @@ public class FieldMgr
 	const int CHIP_SPIKE = 3;
 
 	// 移動床
-	const int CHIP_FLOOR_MOVE = 4;
+	const int CHIP_DOCTOR = 4;
 
 	// ゴール
 	const int CHIP_GOAL = 5;
@@ -94,9 +94,7 @@ public class FieldMgr
 					Spike.Add(x, y);
 					break;
 
-				case CHIP_FLOOR_MOVE:
-//					// 移動床を作成
-//					FloorMove.Add(x, y);
+				case CHIP_DOCTOR:
 					{
 						// ハカセを移動させる
 						GameObject obj = GameObject.Find("Doctor") as GameObject;

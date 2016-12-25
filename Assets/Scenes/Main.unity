@@ -134,7 +134,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5853536, guid: 618aa28c6f6d1814888bd3e3f8fb0a98, type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5056380, guid: 618aa28c6f6d1814888bd3e3f8fb0a98, type: 2}
       propertyPath: m_Mass
@@ -151,6 +151,10 @@ Prefab:
     - target: {fileID: 495800, guid: 618aa28c6f6d1814888bd3e3f8fb0a98, type: 2}
       propertyPath: m_LocalScale.y
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5853536, guid: 618aa28c6f6d1814888bd3e3f8fb0a98, type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 618aa28c6f6d1814888bd3e3f8fb0a98, type: 2}
@@ -330,10 +334,10 @@ CircleCollider2D:
     type: 2}
   m_PrefabInternal: {fileID: 128681155}
   m_GameObject: {fileID: 315133269}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -811,7 +815,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 1269136859}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: cfd29569a7c0a2e40a61ef17e6f44748, type: 2}
+  m_Material: {fileID: 6200000, guid: 9e70f3e24190df54eaa65c846a7dba24, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -1207,7 +1211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 953f95ef87797624a8bbf3f2ba8a8228, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _state: 0
+  state: 0
   nStage: 1
 --- !u!4 &1776250390
 Transform:
@@ -1311,7 +1315,7 @@ Prefab:
     - target: {fileID: 5860762, guid: 04f4cdb438adcb442a73f1fb7e29b39e, type: 2}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 6200000, guid: cfd29569a7c0a2e40a61ef17e6f44748, type: 2}
+      objectReference: {fileID: 6200000, guid: 9e70f3e24190df54eaa65c846a7dba24, type: 2}
     - target: {fileID: 11495138, guid: 04f4cdb438adcb442a73f1fb7e29b39e, type: 2}
       propertyPath: target
       value: 
